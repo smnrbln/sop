@@ -19,7 +19,11 @@
   <b>Tag:</b>
   <%= @post.tag %>
 </p>
-
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<p>
+  <b>Owner:</b>
+  <%= @post.user.username %>
+</p>
+<% if can? :edit, @post %>
+ <%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
 <%= link_to 'Back', posts_path %>
